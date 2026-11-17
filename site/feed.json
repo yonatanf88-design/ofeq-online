@@ -1,8 +1,29 @@
 {
-  "items": [],
-  "updated_at": null,
-  "attempted_at": null,
+  "items": [
+    {
+      "id": "f89453c0f403d8c1dc5763c6",
+      "title": "4.2 טריליון דולר נמחקו מספקיות תשתיות ה-AI: גם התעשייה משלמת על החששות מהבועה - ביזפורטל",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFA5YnN4bTV2MlVlQzJYN0EzTXNvMldvSnVydjBXT2dwbEFpQnBiZWN2elpGTlRGTHo3c19OSEdLcXF1SmUxNXZZdDI1dkJkN2c4amc3S2g4NmtGWjZsSkV0YlpyTk45dHRYSHY3aUJZaDE?oc=5",
+      "category": "חדשנות ו-AI",
+      "source": "ביזפורטל",
+      "published_at": "2026-11-15T18:51:00+00:00",
+      "type": "external_article",
+      "language": "he"
+    },
+    {
+      "id": "71e6bcb92129b7652c75d006",
+      "title": "רמות כוח האדם קשורות לתפקידים. - Vietnam.vn",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1Fa0wzaXMyUF8tVHBNY3VYWDB1ajAxUjVBV3lNcHRZWVpoZUU3MllHVUEwTzRXQ2w4TkF3YnNzUm8tbW1qeG1QQVlxb3ZuaTFETjZTQWtSOGhLX3I5anlueG9KWE8zX2JieWc?oc=5",
+      "category": "קריירה",
+      "source": "Vietnam.vn",
+      "published_at": "2026-11-14T23:45:40+00:00",
+      "type": "external_article",
+      "language": "he"
+    }
+  ],
+  "updated_at": "2026-11-17T10:46:22.331360+00:00",
+  "attempted_at": "2026-11-17T10:46:22.331360+00:00",
   "errors": [],
-  "live": false,
+  "live": true,
   "refresh_interval_hours": 24
 }
