@@ -1,0 +1,66 @@
+name: Ofeq - Daily updates and publish
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'site/feed.json'
+  schedule:
+    - cron: '37 7 * * *'
+      timezone: 'Asia/Jerusalem'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ofeq-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Test feed code
+        run: python3 -m unittest discover -s tests -v
+      - name: Fetch current sourced RSS headlines
+        id: refresh
+        continue-on-error: true
+        run: python3 scripts/update_feed.py
+      - name: Save latest successful feed to repository
+        if: steps.refresh.outcome == 'success'
+        continue-on-error: true
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/feed.json
+          if ! git diff --cached --quiet; then
+            git commit -m "data: refresh sourced Ofeq news [skip ci]"
+            git push
+          fi
+      - name: Prepare static site
+        run: |
+          touch site/.nojekyll
+          test -s site/index.html
+          test -s site/manifest.json
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
