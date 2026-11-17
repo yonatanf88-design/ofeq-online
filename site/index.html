@@ -28,6 +28,7 @@
     <div><div class="sidebar-label">המרחב שלי</div><nav class="nav" id="desktopNav">
       <button data-view="home" class="active"><span class="side-emoji">◈</span> הבית שלי</button>
       <button data-view="library"><span class="side-emoji">▤</span> ספריית הרעיונות</button>
+      <button data-view="insights"><span class="side-emoji">✦</span> קפסולות AI</button>
       <button data-view="news"><span class="side-emoji">◉</span> מה חדש בעולם</button>
       <button data-view="saved"><span class="side-emoji">☆</span> שמרתי לעצמי</button>
       <button data-view="settings"><span class="side-emoji">⚙</span> התאמה אישית</button>
@@ -41,13 +42,20 @@
       <div class="mini-stat-grid"><div class="stat"><div class="stat-icon">🔥</div><div><b id="streakCount">0</b><span>ימי למידה ברצף</span></div></div><div class="stat"><div class="stat-icon">✓</div><div><b id="learnedCount">0</b><span>רעיונות שלמדתי</span></div></div><div class="stat"><div class="stat-icon">☆</div><div><b id="savedCount">0</b><span>רעיונות ששמרתי</span></div></div></div>
       <div class="section"><div class="progress-block"><div><strong>ההתקדמות שלך היום</strong><p id="todayProgressLabel">עוד לא התחלת, וזה לגמרי בסדר.</p><div class="progress-track"><div class="progress-fill" id="todayProgressFill" style="width:0%"></div></div></div><span class="pill green" id="todayProgressFraction">0 מתוך 4</span></div></div>
       <div class="section"><div class="heading"><div><h2>נבחר בשבילך להיום</h2><div class="muted">מבחר אישי שמתחדש בכל יום, מתוך מאגר ידע מקצועי</div></div><span class="pill green" id="dailyDuration">כ־8 דקות</span></div><div class="cards" id="dailyCards"></div></div>
+
+      <div class="section">
+        <div class="heading"><div><h2>✨ תובנות AI מהמקורות</h2><div class="muted">רעיון, יישום ומשימה בעברית • מבוסס על תקצירי RSS של מפרסמים מזוהים</div></div><button class="button secondary sm" onclick="showView('insights')">לכל התובנות ←</button></div>
+        <div class="notice" id="aiStatus">בודק אם נוצרו תובנות AI חדשות…</div>
+        <div class="cards" id="aiCards"></div>
+      </div>
       <div class="section"><div class="heading"><div><h2>הבחירה האישית שלך מהימים האחרונים</h2><div class="muted">כתבות חדשות בתחומי העניין שבחרת, ממקורות חיצוניים מזוהים</div></div><span class="pill green">מתחדש עם הפיד היומי</span></div><div id="recommendedNews"></div></div>
       <div class="section"><div class="heading"><div><h2>מה חדש בעולם שלך?</h2><div class="muted">כותרות אמיתיות ממקורות חדשותיים, לא סיכומים מומצאים</div></div><button class="link-button" onclick="showView('news')">לכל העדכונים ←</button></div><div id="homeNews"></div></div>
     </section>
     <section class="view" id="view-library"><div class="heading"><div><h2>ספריית הרעיונות</h2><div class="muted">ידע קצר, מהימן ויישומי, כתוב במיוחד לעולם הניהול והתעשייה</div></div><input class="searchbox" id="librarySearch" placeholder="חפש רעיון, מיומנות או מושג…" aria-label="חיפוש בספרייה"></div><div class="pills" id="libraryFilters"></div><div class="section" style="margin-top:18px"><div class="cards" id="libraryCards"></div></div></section>
     <section class="view" id="view-news"><div class="heading"><div><h2>חדש בשטח</h2><div class="muted">מידע עדכני ממקורות חיצוניים, עם תאריך וקישור למקור</div></div><button class="button secondary sm" id="refreshNews" onclick="loadNews(true)">↻ רענון תצוגה</button></div><div class="notice" style="margin-bottom:17px">עדכוני החדשות נשלפים ממקורות RSS באופן אוטומטי מדי בוקר באמצעות משימה מתוזמנת באתר. לחיצה על רענון בודקת את גרסת המידע האחרונה שפורסמה. מאמרים חיצוניים אינם מתורגמים או מסוכמים אוטומטית, ולכן מומלץ לפתוח את המקור ולקרוא אותו לפני שימוש מקצועי. הנתונים אינם ייעוץ פיננסי.</div><div class="pills" id="newsFilters"></div><div id="newsMeta" class="muted" style="font-size:12px;margin:15px 0"></div><div class="news" id="newsCards"></div></section>
+    <section class="view" id="view-insights"><div class="heading"><div><h2>קפסולות AI מקצועיות</h2><div class="muted">תובנות מקוריות בעברית, המבוססות רק על התיאור שפרסם המקור — לא על מאמר שלם שלא נקרא</div></div><button class="button secondary sm" onclick="loadAIInsights()">↻ רענון</button></div><div id="aiMeta" class="notice" style="margin:16px 0">בודק תובנות…</div><div id="aiArchive" class="cards"></div></section>
     <section class="view" id="view-saved"><div class="heading"><div><h2>שמרתי לעצמי</h2><div class="muted">הרעיונות והכתבות שסימנת לשמירה — הכל במקום אחד</div></div></div><div class="cards" id="savedCards"></div></section>
-    <section class="view" id="view-settings"><div class="heading"><div><h2>התאמה אישית</h2><div class="muted">בחר מה מעניין אותך ותן לאופק להתאים את המסלול</div></div></div><div class="grid-2"><div class="surface"><h3>הפרופיל שלי</h3><p>הנתונים נשמרים במכשיר שלך בלבד, ולא נשלחים לשרת.</p><div class="setting-row"><label for="profileName">איך לקרוא לך?</label><input id="profileName" class="input" maxlength="40"></div><div class="setting-row"><label for="profileRole">העולם המקצועי שלי</label><input id="profileRole" class="input" maxlength="90"></div><div class="setting-row"><label for="profileMinutes">כמה דקות ביום?</label><select id="profileMinutes" class="input"><option value="5">5 דקות</option><option value="10">10 דקות</option><option value="15">15 דקות</option></select></div><button class="button" id="saveProfile" style="margin-top:20px">שמור שינויים</button></div><div class="surface"><h3>מה מעניין אותי?</h3><p>הנושאים שבחרת יקבלו עדיפות בקפסולה היומית שלך.</p><div class="topics-grid" id="topicSettings"></div><h3 style="margin-top:26px">על התוכן</h3><p class="privacy">כרטיסיות הידע הן תוכן מקורי המבוסס על מושגים מוכרים בניהול, כספים ושיפור תהליכים. החדשות הן כותרות חיצוניות עם קישורים למקורות ולתאריכי הפרסום; הן אינן תקצירי AI של המאמרים. אין כאן עותקים של ספרים או העתקה של כתבות. האפליקציה אינה אוספת סיסמאות או מידע אישי לשרת. עדכונים חיים מגיעים מקובץ המתפרסם מחדש בכל יום, כאשר משימת העדכון מצליחה. האתר עובד גם בלי שרת אישי פעיל.</p></div></div><div class="surface section"><h3>הנתונים שלי</h3><p>אפשר לאפס את ההתקדמות, השמירות וההעדפות בדפדפן הנוכחי. הנתונים אינם מסונכרנים בין מכשירים.</p><button class="button ghost sm" onclick="resetState()">אפס נתונים אישיים</button></div></section>
+    <section class="view" id="view-settings"><div class="heading"><div><h2>התאמה אישית</h2><div class="muted">בחר מה מעניין אותך ותן לאופק להתאים את המסלול</div></div></div><div class="grid-2"><div class="surface"><h3>הפרופיל שלי</h3><p>הנתונים נשמרים במכשיר שלך בלבד, ולא נשלחים לשרת.</p><div class="setting-row"><label for="profileName">איך לקרוא לך?</label><input id="profileName" class="input" maxlength="40"></div><div class="setting-row"><label for="profileRole">העולם המקצועי שלי</label><input id="profileRole" class="input" maxlength="90"></div><div class="setting-row"><label for="profileMinutes">כמה דקות ביום?</label><select id="profileMinutes" class="input"><option value="5">5 דקות</option><option value="10">10 דקות</option><option value="15">15 דקות</option></select></div><button class="button" id="saveProfile" style="margin-top:20px">שמור שינויים</button></div><div class="surface"><h3>מה מעניין אותי?</h3><p>הנושאים שבחרת יקבלו עדיפות בקפסולה היומית שלך.</p><div class="topics-grid" id="topicSettings"></div><h3 style="margin-top:26px">על התוכן</h3><p class="privacy">כרטיסיות הידע הן תוכן מקורי המבוסס על מושגים מוכרים בניהול, כספים ושיפור תהליכים. החדשות הן כותרות חיצוניות עם קישורים למקורות ולתאריכי הפרסום. תובנות ה-AI, כאשר הן זמינות, מבוססות על תיאור RSS של המפרסם ולא על קריאת המאמר המלא; היישומים הם הצעות AI, ולא עובדות מהמקור. אין כאן עותקים של ספרים או העתקה של כתבות. האפליקציה אינה אוספת סיסמאות או מידע אישי לשרת. עדכונים חיים מגיעים מקובץ המתפרסם מחדש בכל יום, כאשר משימת העדכון מצליחה. האתר עובד גם בלי שרת אישי פעיל.</p></div></div><div class="surface section"><h3>הנתונים שלי</h3><p>אפשר לאפס את ההתקדמות, השמירות וההעדפות בדפדפן הנוכחי. הנתונים אינם מסונכרנים בין מכשירים.</p><button class="button ghost sm" onclick="resetState()">אפס נתונים אישיים</button></div></section>
   </div></main>
 </div>
 <nav class="mobile-nav" id="mobileNav"><button data-view="home" class="active"><span>◈</span>הבית</button><button data-view="library"><span>▤</span>לומדים</button><button data-view="news"><span>◉</span>עדכונים</button><button data-view="saved"><span>☆</span>שמורים</button><button data-view="settings"><span>⚙</span>הגדרות</button></nav>
@@ -105,7 +113,7 @@ function card(item){let saved=!!state.saved[item.id],read=!!state.read[item.id];
 function renderStats(){el('streakCount').textContent=consecutiveDays();el('learnedCount').textContent=Object.keys(state.read).length;el('savedCount').textContent=Object.keys(state.saved).length;const todays=dailyLessons(),read=todays.filter(x=>state.read[x.id]);el('todayProgressFill').style.width=(read.length/todays.length*100||0)+'%';el('todayProgressFraction').textContent=read.length+' מתוך '+todays.length;el('todayProgressLabel').textContent=read.length===todays.length?'השלמת את הקפסולה היומית. מצוין!':read.length?'כבר התחלת. כל רעיון נוסף מקרב אותך ליעד.':'בחר רעיון אחד כדי להתחיל את הלמידה היום.';el('dailyDuration').textContent='כ־'+todays.reduce((sum,x)=>sum+x.mins,0)+' דקות';el('dailyCards').innerHTML=todays.map(card).join('')}
 function renderLibrary(){const filtered=LESSONS.filter(x=>(libraryCategory==='הכל'||x.cat===libraryCategory)&&(`${x.title} ${x.teaser} ${x.cat} ${x.detail}`).toLowerCase().includes(el('librarySearch').value.trim().toLowerCase()));el('libraryCards').innerHTML=filtered.length?filtered.map(card).join(''):'<div class="empty">לא נמצאו רעיונות שמתאימים לחיפוש.</div>';el('libraryFilters').innerHTML=['הכל',...CATEGORIES].map(c=>`<button class="${c===libraryCategory?'active':''}" onclick="setLibraryCategory('${c}')">${esc(c)}</button>`).join('')}
 function setLibraryCategory(c){libraryCategory=c;renderLibrary()}
-function renderSaved(){const saved=LESSONS.filter(x=>state.saved[x.id]);const articles=newsItems.filter(x=>state.articleSaved?.[x.id]);el('savedCards').innerHTML=saved.length?saved.map(card).join(''):'<div class="empty">לא שמרת כרטיסיות ידע.</div>';el('savedCards').innerHTML+=articles.length?articles.map(sourceNewsCard).join(''):''} 
+function renderSaved(){const saved=LESSONS.filter(x=>state.saved[x.id]);const articles=newsItems.filter(x=>state.articleSaved?.[x.id]);el('savedCards').innerHTML=saved.length?saved.map(card).join(''):'<div class="empty">לא שמרת כרטיסיות ידע.</div>';el('savedCards').innerHTML+=articles.length?articles.map(sourceNewsCard).join(''):'';const aiSaved=aiInsights.filter(x=>state.articleSaved?.['ai:'+x.id]);el('savedCards').innerHTML+=aiSaved.length?aiSaved.map(insightCard).join(''):''} 
 function toggleArticleSaved(id){state.articleSaved=state.articleSaved||{};if(state.articleSaved[id])delete state.articleSaved[id];else state.articleSaved[id]=todayISO();persist();renderNews();renderSaved()}
 function markArticleRead(id){state.articleRead=state.articleRead||{};state.articleRead[id]=todayISO();persist();renderNews();renderSaved()}
 function recommendedNews(){const cats=new Set(safeCategories()),valid=newsItems.filter(x=>cats.has(x.category)&&x.published_at&&((Date.now()-new Date(x.published_at).getTime()) < 10*86400000));const picked=[],seen=new Set();for(const x of valid){if(!seen.has(x.category)){seen.add(x.category);picked.push(x)}if(picked.length>=3)break}for(const x of valid){if(picked.length>=3)break;if(!picked.includes(x))picked.push(x)}return picked} 
@@ -125,10 +133,59 @@ window.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 function showView(view){activeView=view;document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id==='view-'+view));document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===view));window.scrollTo({top:0,behavior:'smooth'});if(view==='news'&&!newsLoaded)loadNews();if(view==='settings')renderSettings();if(view==='library')renderLibrary();if(view==='saved')renderSaved()}
 document.querySelectorAll('[data-view]').forEach(x=>x.addEventListener('click',()=>showView(x.dataset.view)));
 function renderSettings(){el('profileName').value=state.profile.name||'';el('profileRole').value=state.profile.role||'';el('profileMinutes').value=state.profile.minutes||10;el('topicSettings').innerHTML=CATEGORIES.map(cat=>`<label class="toggle"><input type="checkbox" value="${esc(cat)}" ${safeCategories().includes(cat)?'checked':''}><span>${CATEGORY_EMOJI[cat]} ${esc(cat)}</span></label>`).join('')}
-el('saveProfile').addEventListener('click',()=>{const selected=[...el('topicSettings').querySelectorAll('input:checked')].map(x=>x.value);state.profile={name:el('profileName').value.trim()||'חבר',role:el('profileRole').value.trim(),minutes:Number(el('profileMinutes').value),categories:selected.length?selected:CATEGORIES};persist();renderAll();const b=el('saveProfile');b.textContent='✓ נשמר בהצלחה';setTimeout(()=>b.textContent='שמור שינויים',1600)});
+el('saveProfile').addEventListener('click',()=>{const selected=[...el('topicSettings').querySelectorAll('input:checked')].map(x=>x.value);state.profile={name:el('profileName').value.trim()||'חבר',role:el('profileRole').value.trim(),minutes:Number(el('profileMinutes').value),categories:selected.length?selected:CATEGORIES};persist();renderAll();renderAIInsights();const b=el('saveProfile');b.textContent='✓ נשמר בהצלחה';setTimeout(()=>b.textContent='שמור שינויים',1600)});
 function resetState(){if(!confirm('לאפס את כל ההתקדמות, השמירות וההעדפות?'))return;state=structuredClone(initial);persist();renderAll();renderSettings()}
 function renderIdentity(){const hr=Number(new Intl.DateTimeFormat('en-US',{hour:'2-digit',hourCycle:'h23',timeZone:'Asia/Jerusalem'}).format(new Date()));el('hello').textContent=hr<12?'בוקר טוב':hr<17?'צהריים טובים':'ערב טוב';el('welcome').textContent='שלום '+state.profile.name+', טוב לראות אותך';el('avatar').textContent=(state.profile.name||'א')[0];el('todayDate').textContent=new Intl.DateTimeFormat('he-IL',{dateStyle:'full',timeZone:'Asia/Jerusalem'}).format(new Date())}
 function renderAll(){renderIdentity();renderStats();renderLibrary();renderSaved();renderSettings()}
+
+let aiInsights=[], aiGenerated=null, aiFileStatus='loading';
+function aiFiltered(){return aiInsights.filter(x=>safeCategories().includes(x.category));}
+function insightCard(x){
+  if(!x || !x.id || !x.source_url || !x.title)return '';
+  let url;try{url=new URL(x.source_url);if(url.protocol!=='https:')return '';}catch(e){return '';}
+  const key='ai:'+x.id, saved=!!state.articleSaved?.[key],read=!!state.articleRead?.[key];
+  return '<article class="learning-card" style="min-height:230px">'
+    +'<div class="card-meta"><span class="pill green">✦ תובנת AI · '+esc(x.category)+'</span><span class="muted">'+esc(prettyDate(x.source_published_at))+'</span></div>'
+    +'<h3>'+esc(x.title)+'</h3>'
+    +'<p><strong>מה נאמר במקור:</strong> '+esc(x.summary)+'</p>'
+    +'<p><strong>יישום אפשרי (דוגמה):</strong> '+esc(x.application)+'</p>'
+    +'<div class="action-box"><strong>🎯 משימה קטנה להיום</strong><p>'+esc(x.action)+'</p></div>'
+    +'<div class="muted" style="font-size:12px;margin-top:12px">'+esc(x.caveat||'מבוסס על תקציר RSS בלבד; יש לקרוא את המאמר המלא לפני החלטות מקצועיות.')+'</div>'
+    +'<p class="muted" style="font-size:12px">מקור: '+esc(x.source)+' · פורסם '+esc(prettyDate(x.source_published_at))+'</p>'
+    +'<div class="article-actions"><a href="'+esc(url.href)+'" target="_blank" rel="noopener noreferrer" onclick="markAIRead('+JSON.stringify(key).replace(/"/g,'&quot;')+')">למאמר המקורי ↗</a>'
+    +'<button onclick="toggleAISaved('+JSON.stringify(key).replace(/"/g,'&quot;')+')">'+(saved?'★ נשמר':'☆ שמור')+'</button>'
+    +'<span>'+(read?'✓ פתחת לקריאה':'')+'</span></div>'
+    +'</article>';
+}
+function toggleAISaved(key){state.articleSaved=state.articleSaved||{};if(state.articleSaved[key])delete state.articleSaved[key];else state.articleSaved[key]=todayISO();persist();renderAIInsights();renderSaved();}
+function markAIRead(key){state.articleRead=state.articleRead||{};state.articleRead[key]=todayISO();persist();renderAIInsights();}
+function renderAIInsights(){
+  const filtered=aiFiltered();
+  let message='';
+  if(aiInsights.length===0){
+    message=aiFileStatus==='awaiting_api_key'?'המערכת מוכנה, אך יצירת תובנות AI עדיין אינה פעילה. נדרש מפתח API כסוד במאגר GitHub; בינתיים ספריית הידע והחדשות ממשיכות לפעול.':'לא פורסמו עדיין תובנות AI מאומתות ממקורות עם תקציר מספיק מפורט. אין כאן תוכן מומצא.';
+  }else if(!filtered.length){
+    message='קיימות תובנות AI, אך אף אחת מהן לא תואמת את תחומי העניין שבחרת. אפשר להרחיב את התחומים בהגדרות.';
+  }else{
+    message='תובנות שנוצרו על בסיס תקצירי מקור בלבד. תאריך יצירה אחרון: '+(aiGenerated?esc(prettyDate(aiGenerated)):'לא ידוע')+'. היישומים והמשימות הם המלצות AI ולא טענות מתוך המקור.';
+  }
+  el('aiStatus').textContent=message;
+  el('aiMeta').textContent=message;
+  el('aiCards').innerHTML=filtered.slice(0,3).map(insightCard).join('');
+  el('aiArchive').innerHTML=filtered.length?filtered.map(insightCard).join(''):'<div class="empty">אין תובנות AI להצגה כרגע. אפשר להמשיך ללמוד מהספרייה.</div>';
+}
+async function loadAIInsights(){
+  try{
+    const res=await fetch('./insights.json?t='+Date.now(),{cache:'no-store'});
+    if(!res.ok)throw Error('HTTP '+res.status);
+    const data=await res.json();
+    aiInsights=Array.isArray(data.items)?data.items.filter(x=>x.id&&x.source_url&&x.source_published_at&&x.title&&x.summary&&x.application&&x.action):[];
+    aiGenerated=data.generated_at||null;
+    aiFileStatus=data.status||'empty';
+  }catch(e){aiInsights=[];aiFileStatus='offline';}
+  renderAIInsights();renderSaved();
+}
+
 function sourceNewsCard(n){let d=prettyDate(n.published_at), url;try{url=new URL(n.url);if(url.protocol!=='https:')return''}catch(e){return''}let saved=!!state.articleSaved?.[n.id],read=!!state.articleRead?.[n.id];return `<article class="news-item"><div class="meta"><span class="pill green">${esc(n.category)}</span><span class="muted" style="font-size:11px">${esc(d)}</span></div><h3>${esc(n.title)}</h3><div class="bottom"><span>${esc(n.source||'מקור חיצוני')}</span><a href="${esc(n.url)}" target="_blank" rel="noopener noreferrer" onclick="markArticleRead('${esc(n.id)}')">קרא במקור ↗</a></div><div class="article-actions"><button onclick="toggleArticleSaved('${esc(n.id)}')" aria-label="${saved?'הסר מהשמורים':'שמור כתבה'}">${saved?'★ שמור':'☆ שמור להמשך'}</button><span>${read?'✓ פתחת לקריאה':''}</span></div></article>`} 
 
 function renderNews(){el('newsFilters').innerHTML=['הכל',...CATEGORIES.filter(c=>newsItems.some(x=>x.category===c))].map(c=>`<button class="${newsCategory===c?'active':''}" onclick="setNewsCategory('${c}')">${esc(c)}</button>`).join('');let filtered=newsItems.filter(x=>newsCategory==='הכל'||x.category===newsCategory);el('newsCards').innerHTML=filtered.length?filtered.map(sourceNewsCard).join(''):`<div class="empty"><div class="big">📡</div>לא נמצאו כרגע עדכונים זמינים בקטגוריה הזו.<br><small>ייתכן שעדיין אין פרסום עדכני, או שמקורות החדשות אינם זמינים.</small></div>`;
@@ -138,7 +195,7 @@ function renderNews(){el('newsFilters').innerHTML=['הכל',...CATEGORIES.filter
 function setNewsCategory(c){newsCategory=c;renderNews()}
 async function loadNews(force=false){const b=el('refreshNews');b.disabled=true;b.textContent='טוען עדכונים…';newsStatus='loading';renderNews();try{const res=await fetch('./feed.json'+(force?'?r='+Date.now():''),{cache:'no-store'});if(!res.ok)throw new Error('HTTP '+res.status);const data=await res.json();newsItems=Array.isArray(data.items)?data.items.filter(x=>x.id&&x.title&&x.url&&x.published_at):[];newsUpdated=data.attempted_at;newsStatus=newsItems.length?'ok':'empty';newsLoaded=true;}catch(e){newsItems=[];newsStatus='offline';newsLoaded=true;}finally{b.disabled=false;b.textContent='↻ רענון תצוגה';renderNews()}}
 el('librarySearch').addEventListener('input',renderLibrary);
-renderAll();renderNews();loadNews();
+renderAll();renderNews();loadNews();loadAIInsights();
 if ("serviceWorker" in navigator && location.protocol!=="file:") navigator.serviceWorker.register("./sw.js").catch(()=>{});
 </script>
 </body>
