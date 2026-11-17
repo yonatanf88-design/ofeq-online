@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths-ignore:
       - 'site/feed.json'
+      - 'site/insights.json'
   schedule:
     - cron: '37 7 * * *'
       timezone: 'Asia/Jerusalem'
@@ -31,15 +32,21 @@ jobs:
         id: refresh
         continue-on-error: true
         run: python3 scripts/update_feed.py
-      - name: Save latest successful feed to repository
-        if: steps.refresh.outcome == 'success'
+      - name: Generate grounded Hebrew AI insights
+        id: ai
+        continue-on-error: true
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OFEQ_AI_MODEL: gpt-4.1-mini
+        run: python3 scripts/generate_insights.py
+      - name: Persist latest verified content
         continue-on-error: true
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add site/feed.json
+          git add site/feed.json site/insights.json
           if ! git diff --cached --quiet; then
-            git commit -m "data: refresh sourced Ofeq news [skip ci]"
+            git commit -m "data: refresh Ofeq daily content [skip ci]"
             git push
           fi
       - name: Prepare static site
