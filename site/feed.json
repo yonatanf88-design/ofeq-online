@@ -1,12 +1,12 @@
 {
   "items": [
     {
-      "id": "cd7be11061b79a9a44446c3a",
-      "title": "מנכ\"ל גוגל מזהיר כי בינה מלאכותית תשבש כל תעשייה. - Vietnam.vn",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBuNEh4UkpjWWRrSEdNZ1UyRnFFNUJBaERSbThRX1BFbXZ3V1NiU1VhMmo1c0J6MzVXZ2YzaTRwNHk3dUg2ZkRuVFc0TnBsb1ZvZndPLVBEd21ZVFA2eG1WQzF0S1Bzb21GYm9QSGY4RnlGdnBkOUdPSEs2R1NlNnM?oc=5",
+      "id": "6c036f269e0a7f68110a8239",
+      "title": "21% מהסטארטאפים בישראל בונים בינה מלאכותית פיזית, יותר מבארה\"ב - ביזפורטל",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5uWV9DcENLZFJUMUdpNjVfeGxKZFlkb1ExaHk1UkZEdE1HbFNaelRqLW9STUZQZW94MjlJUDVBNHdtSVdOb1ZVTVU2ZURnMFd4SldCWk1YaHZDandRXzlSQ1FsVGl1ajZB?oc=5",
       "category": "חדשנות ו-AI",
-      "source": "Vietnam.vn",
-      "published_at": "2026-11-16T03:48:01+00:00",
+      "source": "ביזפורטל",
+      "published_at": "2026-11-17T22:52:00+00:00",
       "type": "external_article",
       "language": "he"
     },
@@ -21,11 +21,9 @@
       "language": "he"
     }
   ],
-  "updated_at": "2026-11-20T06:32:46.717199+00:00",
-  "attempted_at": "2026-11-20T06:32:46.717199+00:00",
-  "errors": [
-    "מנהיגות: HTTPError"
-  ],
+  "updated_at": "2026-11-21T06:28:31.757529+00:00",
+  "attempted_at": "2026-11-21T06:28:31.757529+00:00",
+  "errors": [],
   "live": true,
   "refresh_interval_hours": 24
 }
