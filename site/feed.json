@@ -1,12 +1,12 @@
 {
   "items": [
     {
-      "id": "6c036f269e0a7f68110a8239",
-      "title": "21% מהסטארטאפים בישראל בונים בינה מלאכותית פיזית, יותר מבארה\"ב - ביזפורטל",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5uWV9DcENLZFJUMUdpNjVfeGxKZFlkb1ExaHk1UkZEdE1HbFNaelRqLW9STUZQZW94MjlJUDVBNHdtSVdOb1ZVTVU2ZURnMFd4SldCWk1YaHZDandRXzlSQ1FsVGl1ajZB?oc=5",
+      "id": "5fb754feba9bd3b960beee04",
+      "title": "התעשייה האווירית מקימה חטיבת בינה מלאכותית - Techtime",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5tclNWV1JSaW01cGpobldUWUcxZGtTVG0yTjdqN2RmM0JCc3BDSDRTV2p1d0l4ZHlCSXZXZHpYSmtBZzc1WVhxQzlNRjUxblJQamVB?oc=5",
       "category": "חדשנות ו-AI",
-      "source": "ביזפורטל",
-      "published_at": "2026-11-17T22:52:00+00:00",
+      "source": "Techtime",
+      "published_at": "2026-11-22T14:56:21+00:00",
       "type": "external_article",
       "language": "he"
     },
@@ -21,8 +21,8 @@
       "language": "he"
     }
   ],
-  "updated_at": "2026-11-22T06:27:58.208896+00:00",
-  "attempted_at": "2026-11-22T06:27:58.208896+00:00",
+  "updated_at": "2026-11-23T06:42:16.143235+00:00",
+  "attempted_at": "2026-11-23T06:42:16.143235+00:00",
   "errors": [],
   "live": true,
   "refresh_interval_hours": 24
