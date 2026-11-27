@@ -1,22 +1,22 @@
 {
   "items": [
     {
-      "id": "fe437be35b399d81d9c9c810",
-      "title": "ניהול יזום של משאבי אנוש לצורך פיתוח (חלק 2): שימור עובדים, האתגר העומד מאחורי צמיחה. - Vietnam.vn",
-      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPTjN5UVhpbmk2WFd1NmpHc0dwSlZ4OTdsYjJaaWd4bzRCcmtXQ3JrSlR6MGxFWE1VTm1xXzNmYlU3MVBadXc3Z3B5aGhoSjd3cjVBUjNvNHpGazl3T05xUTg5UEJDSnVwQ2ZSRG0wYWR5VWhMcFVVTWR0R0RFMFcyN09pYmRJNXNPYjlLZW9zNW9Vamk4OER1N0trOTVaX294LUJPeTlSemVlWno1bzlvX2wxT0pFVU1IanNNQjlzNC0?oc=5",
+      "id": "8c8eccdc88dd68165eaaeb22",
+      "title": "ה-AI נכנס לבניינים - והמחסור בטכנאים כבר משבש 68% מהארגונים - ביזפורטל",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBSLUVxenBLSG1wRWJqa0swd1l5VDlUOU9DdTczbjdsMzRKQ0JMemRyTzlCcXRMWnBrdG42dkRDallTcmhwT3N4WjdFZjJNZklGMmZvY05qR2J0bnBkaWZRdTkxUkh6V0k?oc=5",
       "category": "מנהיגות",
-      "source": "Vietnam.vn",
-      "published_at": "2026-11-26T00:54:02+00:00",
+      "source": "ביזפורטל",
+      "published_at": "2026-11-23T12:28:00+00:00",
       "type": "external_article",
       "language": "he"
     },
     {
-      "id": "015fb430cf41214e2095c626",
-      "title": "התעשייה היצירתית בעידן הבינה המלאכותית: הטכנולוגיה היא העוזרת, אך בני האדם ממלאים את התפקיד המכריע. - Vietnam.vn",
-      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQTXREWHRoVnNzUE54V1k4OE1LMkJhM2lmQWF5UnBCc256RHpvNmJfdXc5aXNpZl9ObXNFWDdVUldxaXh4YUZvcU9oRERONjJTUmdSNGNMczdJREsxdHhzbV9UOExaV1VOTHpIYkRjbm9CUGdjbTdGX0FNZV9VZUVHdVhkbjJCRkMxUzJPeUZ1RVNSWmplV29NZjN3dUQ3WGd0aUZvaElYdlNLakFPZnFDTjB2YXU3TEFtM0U3VHpMd051Zw?oc=5",
+      "id": "5fb754feba9bd3b960beee04",
+      "title": "התעשייה האווירית מקימה חטיבת בינה מלאכותית - Techtime",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5tclNWV1JSaW01cGpobldUWUcxZGtTVG0yTjdqN2RmM0JCc3BDSDRTV2p1d0l4ZHlCSXZXZHpYSmtBZzc1WVhxQzlNRjUxblJQamVB?oc=5",
       "category": "חדשנות ו-AI",
-      "source": "Vietnam.vn",
-      "published_at": "2026-11-19T11:27:31+00:00",
+      "source": "Techtime",
+      "published_at": "2026-11-22T14:56:21+00:00",
       "type": "external_article",
       "language": "he"
     },
@@ -26,7 +26,7 @@
       "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5uWV9DcENLZFJUMUdpNjVfeGxKZFlkb1ExaHk1UkZEdE1HbFNaelRqLW9STUZQZW94MjlJUDVBNHdtSVdOb1ZVTVU2ZURnMFd4SldCWk1YaHZDandRXzlSQ1FsVGl1ajZB?oc=5",
       "category": "חדשנות ו-AI",
       "source": "ביזפורטל",
-      "published_at": "2026-11-17T22:52:00+00:00",
+      "published_at": "2026-11-18T08:00:00+00:00",
       "type": "external_article",
       "language": "he"
     },
@@ -41,8 +41,8 @@
       "language": "he"
     }
   ],
-  "updated_at": "2026-11-26T06:27:24.268460+00:00",
-  "attempted_at": "2026-11-26T06:27:24.268460+00:00",
+  "updated_at": "2026-11-27T06:30:46.312520+00:00",
+  "attempted_at": "2026-11-27T06:30:46.312520+00:00",
   "errors": [],
   "live": true,
   "refresh_interval_hours": 24
