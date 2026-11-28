@@ -1,6 +1,26 @@
 {
   "items": [
     {
+      "id": "fe437be35b399d81d9c9c810",
+      "title": "ניהול יזום של משאבי אנוש לצורך פיתוח (חלק 2): שימור עובדים, האתגר העומד מאחורי צמיחה. - Vietnam.vn",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPTjN5UVhpbmk2WFd1NmpHc0dwSlZ4OTdsYjJaaWd4bzRCcmtXQ3JrSlR6MGxFWE1VTm1xXzNmYlU3MVBadXc3Z3B5aGhoSjd3cjVBUjNvNHpGazl3T05xUTg5UEJDSnVwQ2ZSRG0wYWR5VWhMcFVVTWR0R0RFMFcyN09pYmRJNXNPYjlLZW9zNW9Vamk4OER1N0trOTVaX294LUJPeTlSemVlWno1bzlvX2wxT0pFVU1IanNNQjlzNC0?oc=5",
+      "category": "מנהיגות",
+      "source": "Vietnam.vn",
+      "published_at": "2026-11-26T00:54:02+00:00",
+      "type": "external_article",
+      "language": "he"
+    },
+    {
+      "id": "1984cd560b9d8d5edb6e63c1",
+      "title": "לאור הזינוק בשימוש ב-AI: ייצור מערכות קירור נוזלי באירופה יוכפל - מעריב",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBramhJaVFjeVNiLVhXOVR1OXhGQl95WXVLNEI3UklBWm9EYU12M1lrTWMtMlpxc21fMDh2TEZYV2p5STAzMWFmR1dQTS1FNmxDMFNDMm9YWHNlU01uVTQ5aVVxTQ?oc=5",
+      "category": "חדשנות ו-AI",
+      "source": "מעריב",
+      "published_at": "2026-11-25T09:03:16+00:00",
+      "type": "external_article",
+      "language": "he"
+    },
+    {
       "id": "8c8eccdc88dd68165eaaeb22",
       "title": "ה-AI נכנס לבניינים - והמחסור בטכנאים כבר משבש 68% מהארגונים - ביזפורטל",
       "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBSLUVxenBLSG1wRWJqa0swd1l5VDlUOU9DdTczbjdsMzRKQ0JMemRyTzlCcXRMWnBrdG42dkRDallTcmhwT3N4WjdFZjJNZklGMmZvY05qR2J0bnBkaWZRdTkxUkh6V0k?oc=5",
@@ -41,8 +61,8 @@
       "language": "he"
     }
   ],
-  "updated_at": "2026-11-27T06:30:46.312520+00:00",
-  "attempted_at": "2026-11-27T06:30:46.312520+00:00",
+  "updated_at": "2026-11-28T06:30:35.059773+00:00",
+  "attempted_at": "2026-11-28T06:30:35.059773+00:00",
   "errors": [],
   "live": true,
   "refresh_interval_hours": 24
